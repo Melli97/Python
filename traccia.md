@@ -1,6 +1,6 @@
-Esercizio: BlackJack in Python
+**Esercizio: BlackJack in Python**
 
-Descrizione
+**Descrizione**
 
 L’obiettivo dell’esercizio è creare una versione semplificata del gioco del BlackJack utilizzando Python.
 
