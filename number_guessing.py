@@ -18,8 +18,10 @@ def gioca(tentativi_max):
         tentativi += 1
         if numero_utente > numero_segreto:
             print("Numero troppo alto")
+            print("Tentativi usati:", tentativi)
         elif numero_utente < numero_segreto:
             print("Numero troppo basso")
+            print("Tentativi usati:", tentativi )
         else:
             print("Hai indovinato!")
             print("Tentativi usati:", tentativi)
