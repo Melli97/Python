@@ -5,7 +5,7 @@
 #    → Operazione: accedi agli ingredienti o al costo della bevanda  
 
 # 3️⃣ Terzo livello: dizionario ingredients (es. water: 200, milk:150, coffee:24)  
-#    → Operazione: ciclo for su chiavi e valori → controlli e scalai le risorse  
+#    → Operazione: ciclo for su chiavi e valori → controlli e scalai le risorse (altro dizionario)
 
 # 4️⃣ Ciclo for combinato:  
 #    → Primo for: scorre le bevande  
