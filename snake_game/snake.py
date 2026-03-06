@@ -19,6 +19,7 @@ class Snake:
     def create_snake(self):
         # Crea i segmenti iniziali del serpente e li posiziona
         for position in STARTING_POSITION:
+            self.add_segment(position)
             new_segment = Turtle("square")  # Segmento a forma di quadrato
             new_segment.color("white")  # Colore del segmento
             new_segment.penup()  # Non disegna linee quando si sposta
@@ -33,7 +34,18 @@ class Snake:
             self.segments[seg_num].goto(new_x, new_y)  # Sposta il segmento corrente
 
         self.head.forward(MOVE_DISTANCE)  # Muove la testa in avanti
-    
+
+
+    def extend(self):
+        self.add_segment(self.segments[-1].position())
+
+    def add_segment(self, position):
+        new_segment = Turtle("square")
+        new_segment.color("white")
+        new_segment.penup()
+        new_segment.goto(position)
+        self.segments.append(new_segment)
+
     # Funzioni per cambiare direzione
     def up(self):
         if self.head.heading() != DOWN:  # Evita inversione a 180°

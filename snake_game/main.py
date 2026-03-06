@@ -1,5 +1,7 @@
 from turtle import Turtle, Screen
 from snake import Snake  # Importa la classe Snake dal file snake.py
+from food import Food
+from scoreboard import Scoreboard
 import time
 
 # Imposta la finestra di gioco
@@ -11,6 +13,8 @@ screen.tracer(0)  # Disattiva l'aggiornamento automatico della finestra (più ve
 
 # Crea il serpente
 snake = Snake()
+food = Food()
+scoreboard = Scoreboard()
 
 # Riconosce i comandi della tastiera
 screen.listen()  # Attiva l'ascolto dei tasti
@@ -28,5 +32,24 @@ while game_is_on:
     
     snake.move()  # Muove il serpente
 
-# Chiude la finestra al click
+    if snake.head.distance(food) < 15:
+        food.refresh()
+        snake.extend()
+        scoreboard.increase_score()
+   # controlla se la testa esce dai bordi dello schermo
+    if (
+        snake.head.xcor() > 280 or   # supera il bordo destro
+        snake.head.xcor() < -280 or  # supera il bordo sinistro
+        snake.head.ycor() > 280 or   # supera il bordo superiore
+        snake.head.ycor() < -280     # supera il bordo inferiore
+    ):
+        game_is_on = False           # ferma il ciclo del gioco
+        scoreboard.game_over()       # mostra la scritta GAME OVER
+    
+    #collisione con il corpo serpente
+    for segment in snake.segments[1:]:  #slicing IMPORTANTE
+        if snake.head.distance(segment) < 10 :
+            game_is_on = False           # ferma il ciclo del gioco
+            scoreboard.game_over()       # mostra la scritta GAME OVER
+
 screen.exitonclick()
