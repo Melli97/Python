@@ -22,6 +22,6 @@ else:
     elif (utente == "carta" and computer == "sasso") or \
          (utente == "forbice" and computer == "carta") or \
          (utente == "sasso" and computer == "forbice"):
-        print("Hai vinto! 🎉")
+        print("Hai vinto! ")
     else:
-        print("Hai perso! 😢")
+        print("Hai perso! ")
